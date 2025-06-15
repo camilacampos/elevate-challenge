@@ -35,7 +35,25 @@ standardrb --fix
 
 ## Example Requests
 
-> TODO
+**Create user**
+```bash
+curl -i -X POST localhost:3000/api/user \
+  --json '{"email": "camila@example.com", "password": "pass1234"}'
+```
+
+**Create session**
+```bash
+curl -i -X POST localhost:3000/api/sessions \
+  --json '{"email": "camila@example.com", "password": "pass1234"}'
+```
+
+**Show logged user info**
+```bash
+curl -i \
+  --header "Authorization: Bearer {token}" \
+  localhost:3000/api/user
+```
+> substitute {token} with token gotten from `create session` request
 
 ## Decision making and thought process
 
