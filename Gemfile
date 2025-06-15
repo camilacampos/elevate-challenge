@@ -48,6 +48,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "rspec-rails", "~> 8.0.0"
+  gem "factory_bot", "~> 6.5"
 
   gem "pry-byebug", "~> 3.11.0", require: false
   gem "standard", "~> 1.35.1"
