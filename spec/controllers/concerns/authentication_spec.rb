@@ -50,7 +50,6 @@ RSpec.describe Authentication do
   end
 
   it "raises error when token is invalid" do
-    user = create(:user)
     fake_controller = klass.new
 
     # invalid token

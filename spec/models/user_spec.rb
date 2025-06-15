@@ -1,14 +1,14 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   it "validates user" do
     test_cases = [
       # email, password, valid, error messages
-      [ "email@example.com", "password", true, nil ],
-      [ "invalid.email", "password", false, "Email is invalid" ],
-      [ nil, "password", false, "Email can't be blank" ], # no email
-      [ "email@example.com", "pass", false, "Password is too short (minimum is 6 characters)" ],
-      [ "email@example.com", nil, false, "Password can't be blank" ] # no password
+      ["email@example.com", "password", true, nil],
+      ["invalid.email", "password", false, "Email is invalid"],
+      [nil, "password", false, "Email can't be blank"], # no email
+      ["email@example.com", "pass", false, "Password is too short (minimum is 6 characters)"],
+      ["email@example.com", nil, false, "Password can't be blank"] # no password
     ]
 
     aggregate_failures do
