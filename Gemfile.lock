@@ -338,6 +338,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
+  dotenv (~> 3.1.8)
   kamal
   puma (>= 5.0)
   rails (~> 8.0.2)
