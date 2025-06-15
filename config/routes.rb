@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # users & sessions
   namespace :api do
-    resource :user, only: :create
+    resource :user, only: [:create, :show]
     resources :sessions, only: :create
   end
 end

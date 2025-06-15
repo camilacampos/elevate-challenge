@@ -14,6 +14,13 @@ module Api
       end
     end
 
+    def show
+      render json: {
+        user_id: current_user.id,
+        user_email: current_user.email
+      }
+    end
+
     private
 
     def user_params
