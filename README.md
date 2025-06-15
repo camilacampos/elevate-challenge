@@ -1,24 +1,42 @@
-# README
+# Elevate Labs Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Refer to [challenge_description.md](challenge_description.md) to check the description of the challenge.
 
-Things you may want to cover:
+## Setup
+| Dependency     | Version     |
+| -------------- | ----------- |
+| Ruby           | **3.4.4**   |
+| Sqlite3        | **3.43.2**  |
 
-* Ruby version
+## Running
 
-* System dependencies
+Install dependencies:
+```
+bundle install
+```
+Run migrations:
+```
+rails db:migrate
+```
+Start the application:
+```
+rails server
+```
+Run tests:
+```
+rspec
+```
+Run linter:
+```
+standardrb
 
-* Configuration
+standardrb --fix
+```
 
-* Database creation
+## Example Requests
 
-* Database initialization
+> TODO
 
-* How to run the test suite
+## Decision making and thought process
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> TODO
