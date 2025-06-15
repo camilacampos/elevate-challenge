@@ -24,6 +24,9 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,8 +37,8 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Lint code for consistent style
-        run: bin/rubocop -f github
+      - name: Standard Ruby
+        uses: standardrb/standard-ruby-action@v1
 
   test:
     runs-on: ubuntu-latest
@@ -63,4 +66,4 @@ jobs:
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test
+        run: bin/rails db:test:prepare spec
