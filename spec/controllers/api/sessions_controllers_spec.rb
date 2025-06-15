@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Api::SessionsController, type: :controller do
-  describe "creating a new session" do
+  context "creating a new session" do
     it "returns 200 OK when correct credentials are given" do
       user = create(:user)
 

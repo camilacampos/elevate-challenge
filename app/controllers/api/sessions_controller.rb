@@ -1,6 +1,6 @@
 module Api
   class SessionsController < ApplicationController
-    include Authentication
+    skip_before_action :authenticate_user, only: [:create]
 
     def create
       user = User.find_by(email: params[:email])

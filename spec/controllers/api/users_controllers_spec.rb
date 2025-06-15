@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Api::UsersController, type: :controller do
-  describe "creating a new user" do
+  context "creating a new user" do
     it "returns 201 CREATED when params are correct" do
       expect {
         post :create, params: {email: "email@example.com", password: "password"}
