@@ -53,3 +53,5 @@ group :development, :test do
   gem "pry-byebug", "~> 3.11.0", require: false
   gem "standard", "~> 1.35.1"
 end
+
+gem "jwt", "~> 3.0"
