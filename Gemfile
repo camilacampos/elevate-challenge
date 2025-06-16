@@ -51,7 +51,7 @@ group :development, :test do
   gem "factory_bot", "~> 6.5"
 
   gem "pry-byebug", "~> 3.11.0", require: false
-  gem "standard", "~> 1.35.1"
+  gem "standard", "~> 1.50.0"
 end
 
 gem "jwt", "~> 3.0"
