@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 6}
 
   has_many :game_events
+  has_many :games, -> { distinct }, through: :game_events
 end
