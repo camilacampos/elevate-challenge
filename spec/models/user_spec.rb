@@ -25,6 +25,23 @@ RSpec.describe User, type: :model do
     end
   end
 
+  it "normalizes email" do
+    test_cases = [
+      # given, expected
+      ["email@example.com", "email@example.com"],
+      ["  email   @example .com ", "email@example.com"],
+      ["EMAIL@EXampLE.COM", "email@example.com"],
+    ]
+
+    aggregate_failures do
+      test_cases.each do |test|
+        user = User.new(email: test[0], password: "some-password")
+
+        expect(user.email).to eq(test[1])
+      end
+    end
+  end
+
   it "validates email uniqueness" do
     email = "email@example.com"
     create(:user, email:)
