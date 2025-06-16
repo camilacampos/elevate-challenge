@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Api::UsersController, type: :controller do
+RSpec.describe Api::UsersController, :vcr, type: :controller do
   context "creating a new user" do
     it "returns 201 CREATED when params are correct" do
       expect {
@@ -48,8 +48,31 @@ RSpec.describe Api::UsersController, type: :controller do
         "email" => user.email,
         "stats" => {
           "total_games_played" => 2
-        }
+        },
+        "subscription_status" => "expired"
       })
+    end
+
+    it "returns 422 when billing service is unavailable" do
+      user = create(:user, :with_game_event, game_events_count: 2, id: 5)
+      signin(user)
+
+      get :show
+
+      expect(response).to have_http_status(:unprocessable_entity)
+      body = JSON.parse(response.body)
+      expect(body["errors"]).to include("Service temporarily unavailable")
+    end
+
+    it "returns 422 when billing service does not find user" do
+      user = create(:user, :with_game_event, game_events_count: 2, id: 105)
+      signin(user)
+
+      get :show
+
+      expect(response).to have_http_status(:unprocessable_entity)
+      body = JSON.parse(response.body)
+      expect(body["errors"]).to include("User not found")
     end
 
     it "returns 401 UNAUTHORIZED for unlogged users" do

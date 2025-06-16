@@ -15,9 +15,15 @@ module Api
     end
 
     def show
-      user_info, _ = RetrieveUserInfo.new.call(current_user)
+      user_info, err = RetrieveUserInfo.new.call(current_user)
 
-      render json: {user: user_info}
+      if err
+        render json: {
+          errors: err
+        }, status: :unprocessable_entity
+      else
+        render json: {user: user_info}, status: :ok
+      end
     end
 
     def game_events
