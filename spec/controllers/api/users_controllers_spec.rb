@@ -43,9 +43,9 @@ RSpec.describe Api::UsersController, type: :controller do
 
       expect(response).to have_http_status(:ok)
       body = JSON.parse(response.body)
-      expect(body).to match({
-        "user_id" => user.id,
-        "user_email" => user.email
+      expect(body["user"]).to match({
+        "id" => user.id,
+        "email" => user.email
       })
     end
 
