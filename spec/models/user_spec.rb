@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
       # given, expected
       ["email@example.com", "email@example.com"],
       ["  email   @example .com ", "email@example.com"],
-      ["EMAIL@EXampLE.COM", "email@example.com"],
+      ["EMAIL@EXampLE.COM", "email@example.com"]
     ]
 
     aggregate_failures do

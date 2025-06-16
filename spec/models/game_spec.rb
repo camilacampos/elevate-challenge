@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Game, type: :model do
   it "validates game" do
     test_cases = [
       # name, valid, error messages
       ["Cool Name", true, nil],
-      [nil, false, "Name can't be blank"], # no name
+      [nil, false, "Name can't be blank"] # no name
     ]
 
     aggregate_failures do

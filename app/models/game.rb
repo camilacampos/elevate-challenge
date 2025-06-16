@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  normalizes :name, with: ->(e) { e.strip.downcase.gsub(/\s+/, ' ') }
+  normalizes :name, with: ->(e) { e.strip.downcase.gsub(/\s+/, " ") }
 
   validates :name, presence: true, uniqueness: true
 
