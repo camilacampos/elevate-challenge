@@ -56,9 +56,9 @@ RSpec.describe User, type: :model do
     user = create(:user)
     game1 = create(:game)
     game2 = create(:game)
-    game_event1 = create(:game_event, user:, game: game1)
-    game_event2 = create(:game_event, user:, game: game1)
-    game_event3 = create(:game_event, user:, game: game2)
+    create(:game_event, user:, game: game1)
+    create(:game_event, user:, game: game1)
+    create(:game_event, user:, game: game2)
 
     expect(user.games.count).to eq 2
     expect(user.games).to contain_exactly(game1, game2)
