@@ -55,4 +55,6 @@ group :development, :test do
 
   gem "pry-byebug", "~> 3.11.0", require: false
   gem "standard", "~> 1.50.0"
+
+  gem "vcr", "~> 6.3"
 end
