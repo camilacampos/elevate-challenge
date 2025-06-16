@@ -25,7 +25,6 @@ RSpec.describe RetrieveUserInfo do
     billing_api = instance_double(Billing::Api)
     error = HttpError.new("not working...", 500)
 
-
     allow(user).to receive(:games).and_return(games)
     allow(billing_api).to receive(:get_subscription_status).with(user.id).and_raise(error)
 

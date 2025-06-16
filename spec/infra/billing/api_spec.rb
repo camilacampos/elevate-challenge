@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Billing::Api do
   it "fetches the subscription status for the user" do
     user_id = 123
-    response = { subscription_status: "active" }
+    response = {subscription_status: "active"}
     http_response = instance_double("Typhoeus::Response", body: response.to_json)
     http_request_instance = instance_double(HttpRequest)
     http_request_class = class_double(HttpRequest, new: http_request_instance)
@@ -19,8 +19,8 @@ RSpec.describe Billing::Api do
 
   it "raises error when request fails" do
     user_id = 123
-    response = { error: "Service Unavailable" }
-    http_response = instance_double("Typhoeus::Response", body: response.to_json, code: 503)
+    response = {error: "Service Unavailable"}
+    instance_double("Typhoeus::Response", body: response.to_json, code: 503)
     error = HttpError.new("Service Unavailable", 503)
     http_request_instance = instance_double(HttpRequest)
     http_request_class = class_double(HttpRequest, new: http_request_instance)

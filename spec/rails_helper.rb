@@ -11,10 +11,10 @@ require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "./spec/support/factory_bot"
 require "./spec/support/authentication_helper"
-require 'vcr'
+require "vcr"
 
 VCR.configure do |c|
-  c.cassette_library_dir = 'spec/support/cassettes'
+  c.cassette_library_dir = "spec/support/cassettes"
   c.hook_into :typhoeus
   c.configure_rspec_metadata!
 end
