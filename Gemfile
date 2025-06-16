@@ -36,6 +36,8 @@ gem "thruster", require: false
 # gem "rack-cors"
 
 gem "dotenv", "~> 3.1.8"
+gem "jwt", "~> 3.0"
+gem "dry-validation", "~> 1.11"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -53,5 +55,3 @@ group :development, :test do
   gem "pry-byebug", "~> 3.11.0", require: false
   gem "standard", "~> 1.35.1"
 end
-
-gem "jwt", "~> 3.0"
