@@ -55,6 +55,21 @@ curl -i \
 ```
 > substitute {token} with token gotten from `create session` request
 
+**Game Completion Ingestion**
+```bash
+curl -i \
+  --header "Authorization: Bearer {token}" \
+  -X POST localhost:3000/api/user/game_events \
+  --json '{
+        "game_event": {
+          "game_name": "Brevity",
+          "type": "COMPLETED",
+          "occurred_at": "2025-01-01T00:00:00.000Z"
+        }
+      }'
+```
+> substitute {token} with token gotten from `create session` request
+
 ## Decision making and thought process
 
 > TODO

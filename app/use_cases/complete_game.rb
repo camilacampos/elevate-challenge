@@ -1,6 +1,4 @@
 class CompleteGame
-  InvalidRequest = Class.new(StandardError)
-
   class CompleteGameContract < Dry::Validation::Contract
     params do
       required(:game_name).filled(::Types::DowncasedStrippedString)
