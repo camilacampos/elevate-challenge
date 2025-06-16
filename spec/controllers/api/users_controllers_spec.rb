@@ -36,16 +36,19 @@ RSpec.describe Api::UsersController, type: :controller do
 
   context "showing current user info" do
     it "returns 200 OK with logged user info" do
-      user = create(:user)
+      user = create(:user, :with_game_event, game_events_count: 2)
       signin(user)
 
       get :show
 
       expect(response).to have_http_status(:ok)
       body = JSON.parse(response.body)
-      expect(body).to match({
-        "user_id" => user.id,
-        "user_email" => user.email
+      expect(body["user"]).to match({
+        "id" => user.id,
+        "email" => user.email,
+        "stats" => {
+          "total_games_played" => 2
+        }
       })
     end
 

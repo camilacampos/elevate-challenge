@@ -15,10 +15,9 @@ module Api
     end
 
     def show
-      render json: {
-        user_id: current_user.id,
-        user_email: current_user.email
-      }
+      user_info, _ = RetrieveUserInfo.new.call(current_user)
+
+      render json: {user: user_info}
     end
 
     def game_events
