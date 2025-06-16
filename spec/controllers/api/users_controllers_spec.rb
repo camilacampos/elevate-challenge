@@ -56,4 +56,60 @@ RSpec.describe Api::UsersController, type: :controller do
       expect(response.body).to be_empty
     end
   end
+
+  context "creating a new game event" do
+    it "returns 201 CREATED when all params are correct" do
+      user = create(:user)
+      game = create(:game)
+      signin(user)
+
+      params = {
+        game_event: {
+          game_name: game.name,
+          type: "COMPLETED",
+          occurred_at: "2025-01-01T00:00:00.000Z"
+        }
+      }
+
+      post :game_events, params: params
+
+      expect(response).to have_http_status(:created)
+      expect(response.body).to be_empty
+    end
+
+    it "returns 422 UNPROCESSABLE ENTITY when there are validation errors" do
+      user = create(:user)
+      game = create(:game)
+      signin(user)
+
+      params = {
+        game_event: {
+          game_name: game.name,
+          type: "STARTED",
+          occurred_at: "2025-01-01T00:00:00.000Z"
+        }
+      }
+
+      post :game_events, params: params
+
+      expect(response).to have_http_status(:unprocessable_entity)
+      body = JSON.parse(response.body)
+      expect(body["errors"]).to include("type must be one of: COMPLETED")
+    end
+
+    it "returns 401 UNAUTHORIZED for unlogged users" do
+      params = {
+        game_event: {
+          game_name: "game name",
+          type: "COMPLETED",
+          occurred_at: "2025-01-01T00:00:00.000Z"
+        }
+      }
+
+      post :game_events, params: params
+
+      expect(response).to have_http_status(:unauthorized)
+      expect(response.body).to be_empty
+    end
+  end
 end
