@@ -36,7 +36,7 @@ gem "thruster", require: false
 # gem "rack-cors"
 
 gem "dotenv", "~> 3.1.8"
-gem "jwt", "~> 3.0"
+gem "jwt", "~> 3.1"
 gem "dry-validation", "~> 1.11"
 gem "typhoeus", "~> 1.4"
 
