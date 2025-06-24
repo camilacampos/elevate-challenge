@@ -159,7 +159,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.12.2)
-    jwt (3.0.0)
+    jwt (3.1.1)
       base64
     kamal (2.7.0)
       activesupport (>= 7.0)
@@ -416,7 +416,7 @@ DEPENDENCIES
   dotenv (~> 3.1.8)
   dry-validation (~> 1.11)
   factory_bot (~> 6.5)
-  jwt (~> 3.0)
+  jwt (~> 3.1)
   kamal
   pry-byebug (~> 3.11.0)
   puma (>= 5.0)
