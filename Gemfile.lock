@@ -137,7 +137,7 @@ GEM
       tzinfo
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    factory_bot (6.5.4)
+    factory_bot (6.5.5)
       activesupport (>= 6.1.0)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
